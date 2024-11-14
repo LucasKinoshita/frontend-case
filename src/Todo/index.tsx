@@ -7,8 +7,8 @@ import { ITodoTypes } from "./types";
 import "./index.css";
 
 function Todo() {
-  const [items, setItems] = useState(TODO_LIST);
-  const [searchInputValue, setSearchInputValue] = useState("");
+  const [items, setItems] = useState<any>(TODO_LIST);
+  const [searchInputValue, setSearchInputValue] = useState<any>("");
   const [search, setSearch] = useState("");
 
   const handleChange = (event: ChangeEvent<unknown>) => {

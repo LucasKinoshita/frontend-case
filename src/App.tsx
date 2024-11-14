@@ -1,4 +1,5 @@
 import logoImage from "./assets/logo.svg";
+import { NavLink } from "react-router-dom";
 // import Todo from "./Todo";
 // import { IBanking } from "./IBanking";
 
@@ -22,12 +23,8 @@ function App() {
           <strong>visualizar</strong> e <strong>renderizar</strong> as páginas.
         </p>
         <ul className="buttons">
-          <li>
-            <a href="#">TO-DO LIST</a>
-          </li>
-          <li>
-            <a href="#">IBANKING</a>
-          </li>
+          <NavLink to="/todo">TO-DO LIST</NavLink>
+          <NavLink to="/ibanking">IBANKING</NavLink>
         </ul>
       </div>
     </main>
