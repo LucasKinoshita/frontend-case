@@ -21,15 +21,7 @@ function Todo() {
   };
 
   const handleDeleteTask = (id: string) => {
-    const editedItems: ITodo[] = [];
-
-    items.map((item) => {
-      if (item.id !== id) {
-        editedItems.push(item);
-      }
-    });
-
-    setItems(editedItems);
+    setItems((currentItems) => currentItems.filter((item) => item.id !== id));
   };
 
   const handleChangeTaskStatus = (id: string, status: ITodoTypes) => {
