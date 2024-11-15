@@ -1,40 +1,40 @@
-import { useState, useEffect, ChangeEvent } from "react";
+import { useState, useEffect, ChangeEvent, FormEvent } from "react";
 
 import logoImage from "../assets/logo.svg";
-import { TODO_LIST } from "./initial-state";
+import { ITodo, TODO_LIST } from "./initial-state";
 import { ITodoTypes } from "./types";
 
 import "./index.css";
 
 function Todo() {
-  const [items, setItems] = useState<any>(TODO_LIST);
-  const [searchInputValue, setSearchInputValue] = useState<any>("");
+  const [items, setItems] = useState<ITodo[]>(TODO_LIST);
+  const [searchInputValue, setSearchInputValue] = useState("");
   const [search, setSearch] = useState("");
 
-  const handleChange = (event: ChangeEvent<unknown>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchInputValue(event.target.value);
   };
 
-  const handleSearch = (event) => {
+  const handleSearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setSearch(searchInputValue);
   };
 
-  const handleDeleteTask = (id: number) => {
-    const editedItems = [];
+  const handleDeleteTask = (id: string) => {
+    const editedItems: ITodo[] = [];
 
     items.map((item) => {
       if (item.id !== id) {
         editedItems.push(item);
       }
-    })
+    });
 
     setItems(editedItems);
   };
 
   const handleChangeTaskStatus = (id: string, status: ITodoTypes) => {
-    const reversedStatus = status === "pending" ? "pending" : "done";
-    const editedItems = [];
+    const reversedStatus = status === "pending" ? "done" : "pending";
+    const editedItems: ITodo[] = [];
 
     for (let i = 0; i < items.length; i++) {
       if (items[i].id === id) {
@@ -51,12 +51,12 @@ function Todo() {
   };
 
   useEffect(() => {
-    if (search || items)
+    if (search)
       setItems((currentItems) => [
         ...currentItems,
         ...TODO_LIST.filter((item) => item.title.includes(search)),
       ]);
-  }, [search, items]);
+  }, [search]);
 
   return (
     <main id="page" className="todo">
@@ -82,11 +82,12 @@ function Todo() {
             <input
               id="search"
               placeholder="busca por texto..."
-              value={searchValue}
+              value={search}
               onChange={handleChange}
             />
             <button type="submit">buscar</button>
           </form>
+
           <ul className="todo__list">
             {items.length === 0 && (
               <span>
@@ -94,45 +95,49 @@ function Todo() {
                 &#128533;
               </span>
             )}
-            {items.map((item, i) => {
+
+            {items.map((item, order_number) => {
               return (
-                <li>
-                  <span>
-                    {i}
-                    {item.required ? "*" : ""}.
-                  </span>
-                  <div className="todo__content">
-                    <h3>
-                      {item.title}
-                      <span data-type={item.status}>{item.status}</span>
-                    </h3>
-                    <p>{item.description}</p>
-                    {item.links && item.links.length > 0 && (
-                      <div className="todo__links">
-                        {item.links.map((link) => (
-                          <a key={link.name} target="_blank" href={link.url}>
-                            {link.name}
-                          </a>
-                        ))}
+                <>
+                  <li>
+                    <span>
+                      {order_number + 1}
+                      {item.required ? "*" : ""}.
+                    </span>
+
+                    <div className="todo__content">
+                      <h3>
+                        {item.title}
+                        <span data-type={item.status}>{item.status}</span>
+                      </h3>
+                      <p>{item.description}</p>
+                      {item.links && item.links.length > 0 && (
+                        <div className="todo__links">
+                          {item.links.map((link) => (
+                            <a key={link.name} target="_blank" href={link.url}>
+                              {link.name}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                      <div className="todo__actions">
+                        <button onClick={() => handleDeleteTask(item.id)}>
+                          delete
+                        </button>
+                        <button
+                          onClick={() =>
+                            handleChangeTaskStatus(item.id, item.status)
+                          }
+                        >
+                          change to{" "}
+                          <strong>
+                            <u>{item.status === "done" ? "pending" : "done"}</u>
+                          </strong>
+                        </button>
                       </div>
-                    )}
-                    <div className="todo__actions">
-                      <button onClick={() => handleDeleteTask(item.uuid)}>
-                        delete
-                      </button>
-                      <button
-                        onClick={() =>
-                          handleChangeTaskStatus(item.id, item.status)
-                        }
-                      >
-                        change to{" "}
-                        <strong>
-                          <u>{item.status === "done" ? "pending" : "done"}</u>
-                        </strong>
-                      </button>
                     </div>
-                  <div>
-                </li>
+                  </li>
+                </>
               );
             })}
           </ul>
