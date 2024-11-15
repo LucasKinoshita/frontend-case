@@ -95,7 +95,7 @@ export const TODO_LIST: ITodo[] = [
     links: [
       {
         name: "endpoint de autenticação",
-        url: "http://localhost:3000/auth",
+        url: "https://github.com/corabank/frontend-case?tab=readme-ov-file#auth",
       },
     ],
   },
@@ -122,7 +122,7 @@ export const TODO_LIST: ITodo[] = [
       },
       {
         name: "endpoint de lista",
-        url: "http://localhost:3000/list",
+        url: "https://github.com/corabank/frontend-case?tab=readme-ov-file#list",
       },
     ],
   },
