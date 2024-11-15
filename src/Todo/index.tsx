@@ -51,11 +51,17 @@ function Todo() {
   };
 
   useEffect(() => {
-    if (search)
-      setItems((currentItems) => [
-        ...currentItems,
-        ...TODO_LIST.filter((item) => item.title.includes(search)),
-      ]);
+    if (search === "") {
+      setItems(TODO_LIST);
+
+      return;
+    }
+
+    setItems([
+      ...TODO_LIST.filter((item) =>
+        item.title.toLowerCase().includes(search.toLowerCase())
+      ),
+    ]);
   }, [search]);
 
   return (
@@ -82,7 +88,7 @@ function Todo() {
             <input
               id="search"
               placeholder="busca por texto..."
-              value={search}
+              value={searchInputValue}
               onChange={handleChange}
             />
             <button type="submit">buscar</button>
@@ -99,7 +105,7 @@ function Todo() {
             {items.map((item, order_number) => {
               return (
                 <>
-                  <li>
+                  <li key={item.id}>
                     <span>
                       {order_number + 1}
                       {item.required ? "*" : ""}.
