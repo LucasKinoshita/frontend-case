@@ -7,6 +7,16 @@
   --color-lighter-gray: #f0f4f8;
   --color-error: #ee3636;
   --color-success: #04aa6d;
+  --color-black: #3b3b3b;
+  --color-blue: #1a93da;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+* {
+  font-family: inherit;
 }
 
 #page {
@@ -20,7 +30,6 @@
   padding: 50px 0 25px;
   font-size: 10px;
   text-align: center;
-  font-family: "Roboto", sans-serif;
   margin: 0 auto;
 }
 

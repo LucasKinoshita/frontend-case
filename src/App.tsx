@@ -1,7 +1,5 @@
 import logoImage from "./assets/logo.svg";
 import { NavLink } from "react-router-dom";
-// import Todo from "./Todo";
-// import { IBanking } from "./IBanking";
 
 import "./App.css";
 
