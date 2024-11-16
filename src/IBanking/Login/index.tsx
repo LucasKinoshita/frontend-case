@@ -7,11 +7,11 @@ function Login() {
   const [cpf, setCpf] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleChangeCPF = (e: ChangeEvent<unknown>) => {
+  const handleChangeCPF = (e: ChangeEvent<HTMLInputElement>) => {
     setCpf(e.target.value);
   };
 
-  const handleChangePassword = (e: ChangeEvent<unknown>) => {
+  const handleChangePassword = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
 
@@ -26,7 +26,11 @@ function Login() {
     <main id="login">
       <img src={logoFullImage} alt="Cora" title="Cora" />
       <h1>Fazer Login</h1>
-      <input id="cpf" placeholder="Insira seu CPF" onChange={handleChangeCPF} />
+      <input
+        id="cpf"
+        placeholder="Insira seu e-mail ou CPF"
+        onChange={handleChangeCPF}
+      />
       <input
         id="password"
         placeholder="Digite sua senha"

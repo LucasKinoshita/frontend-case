@@ -1,4 +1,4 @@
-#page {
+:root {
   --color-main: #fe3e6d;
   --color-dark-main: #d4265a;
   --color-white: #ffffff;
@@ -7,7 +7,9 @@
   --color-lighter-gray: #f0f4f8;
   --color-error: #ee3636;
   --color-success: #04aa6d;
+}
 
+#page {
   width: 100%;
   max-width: calc(100% - 50px);
   min-width: 320px;

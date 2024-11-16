@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import App from "./App";
 import Todo from "./Todo";
 import { IBanking } from "./IBanking";
+import { Login } from "./IBanking/Login";
 
 export function Router() {
   return (
@@ -9,6 +10,7 @@ export function Router() {
       <Route path="/">
         <Route path="/" element={<App />} />
         <Route path="/todo" element={<Todo />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/ibanking" element={<IBanking />} />
       </Route>
     </Routes>
