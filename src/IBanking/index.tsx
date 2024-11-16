@@ -1,7 +1,5 @@
-import { Login } from "./Login";
-
 function IBanking() {
-  return <Login />;
+  return "ibanking";
 }
 
 export { IBanking };

@@ -1,11 +1,13 @@
 import { useState, ChangeEvent } from "react";
 import logoFullImage from "../../assets/logo-full.svg";
 import arrowRightImage from "../../assets/arrow-right.svg";
+import { useNavigate } from "react-router-dom";
 import "./index.css";
 
 function Login() {
   const [cpf, setCpf] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleChangeCPF = (e: ChangeEvent<HTMLInputElement>) => {
     setCpf(e.target.value);
@@ -15,11 +17,28 @@ function Login() {
     setPassword(e.target.value);
   };
 
-  const handleAuth = () => {
-    console.log({
-      cpf,
-      password,
+  const handleAuthLogin = async (cpf: string, password: string) => {
+    const response = await fetch("http://localhost:3000/auth", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        cpf,
+        password,
+      }),
     });
+
+    const json = await response.json();
+
+    localStorage.setItem("auth_token", json.token);
+    navigate("/ibanking");
+  };
+
+  const handleAuth = async () => {
+    if (cpf && password) {
+      await handleAuthLogin(cpf, password);
+    }
   };
 
   return (
