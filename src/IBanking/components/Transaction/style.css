@@ -32,7 +32,8 @@
   padding-left: 5rem;
 }
 
-.ibanking__transaction__amount {
+.ibanking__transaction__amount,
+.ibanking__transaction__amount--credit {
   display: flex;
   font-size: 0.875rem;
   font-weight: bold;

@@ -56,7 +56,7 @@ export const Transaction = (props: ITransaction) => {
             : "ibanking__transaction__amount"
         }`}
       >
-        {entry === "DEBIT" ? "-" : "+"} {formatCurrency(amount)}
+        {entry === "DEBIT" ? "- " : "+ "} {formatCurrency(amount)}
       </span>
     </div>
   );
