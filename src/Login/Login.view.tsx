@@ -26,7 +26,11 @@ export function LoginView(props: LoginViewProps) {
       <Form onSubmit={handleSubmit(onSubmit)}>
         <InputContainer>
           <Input id="cpf" placeholder="Insira seu CPF" {...register("cpf")} />
-          {errors.cpf && <ErrorMessage>{errors.cpf.message}</ErrorMessage>}
+          {errors.cpf && (
+            <ErrorMessage data-testid="error-message">
+              {errors.cpf.message}
+            </ErrorMessage>
+          )}
         </InputContainer>
 
         <InputContainer>
@@ -37,7 +41,9 @@ export function LoginView(props: LoginViewProps) {
             {...register("password")}
           />
           {errors.password && (
-            <ErrorMessage>{errors.password.message}</ErrorMessage>
+            <ErrorMessage data-testid="error-message">
+              {errors.password.message}
+            </ErrorMessage>
           )}
         </InputContainer>
 

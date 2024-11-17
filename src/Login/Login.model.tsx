@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { NavigateFunction } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -7,10 +7,9 @@ import { LoginFormData } from "./Login.type";
 import { IBankTransactionsService } from "../services/BankTransactions/BankTransactions.service";
 
 export function useLoginModel(
-  bankTransactionsService: IBankTransactionsService
+  bankTransactionsService: IBankTransactionsService,
+  navigate: NavigateFunction
 ) {
-  const navigate = useNavigate();
-
   const {
     register,
     handleSubmit,

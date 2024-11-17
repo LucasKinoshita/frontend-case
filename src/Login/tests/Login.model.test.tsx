@@ -3,15 +3,11 @@ import { useLoginModel } from "../Login.model";
 import { successfulBankTransactionsServiceMock } from "../../tests/mocks/bankingServiceMock";
 
 const mockNavigate = vi.fn();
-vi.mock("react-router-dom", () => ({
-  ...vi.importActual("react-router-dom"),
-  useNavigate: () => mockNavigate,
-}));
 
 describe("<useLoginModel />", () => {
   it("should navigate to ibanking transactions when auth is ok", async () => {
     const { result } = renderHook(() =>
-      useLoginModel(successfulBankTransactionsServiceMock)
+      useLoginModel(successfulBankTransactionsServiceMock, mockNavigate)
     );
 
     await waitFor(async () => {

@@ -43,7 +43,7 @@ const Input = styled.input`
 `;
 
 const ErrorMessage = styled.p`
-  color: var(--color-error);
+  color: var(--color-black);
   font-size: 14px;
   margin-top: 8px;
 `;
