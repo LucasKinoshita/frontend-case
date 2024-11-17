@@ -1,17 +1,4 @@
-type Link = {
-  name: string;
-  url: string;
-};
-
-export type ITodo = {
-  id: string;
-  ref: string;
-  title: string;
-  description: React.ReactNode;
-  status: "pending" | "done";
-  required: boolean;
-  links?: Link[];
-};
+import { ITodo } from "./Todo.type";
 
 export const TODO_LIST: ITodo[] = [
   {
@@ -29,7 +16,7 @@ export const TODO_LIST: ITodo[] = [
         correta de tasks? Parabéns, você finalizou a sua primeira task &#127881;
       </>
     ),
-    status: "pending",
+    status: "done",
     required: true,
   },
   {
@@ -41,7 +28,7 @@ export const TODO_LIST: ITodo[] = [
         Nos ajude com o nosso produto de to-do list e resolva os bugs abaixo:
         <br />
         <br />
-        1. A troca de status, de <strong>pending</strong> para{" "}
+        1. A troca de status, de <strong>done</strong> para
         <strong>done</strong> e vice-versa, não esta funcionando corretamenta.
         <br />
         2. A busca não esta funcionando corretamente.
@@ -54,7 +41,7 @@ export const TODO_LIST: ITodo[] = [
         5. Alguns links não estão funcionando.
       </>
     ),
-    status: "pending",
+    status: "done",
     required: true,
   },
   {
@@ -67,7 +54,7 @@ export const TODO_LIST: ITodo[] = [
         alguma coisa errada com o CSS dessa página :/
       </>
     ),
-    status: "pending",
+    status: "done",
     required: true,
     links: [
       {
@@ -90,7 +77,7 @@ export const TODO_LIST: ITodo[] = [
         <strong>Info:</strong> Sinta-se livre para fazer melhorias :)
       </>
     ),
-    status: "pending",
+    status: "done",
     required: true,
     links: [
       {
@@ -113,7 +100,7 @@ export const TODO_LIST: ITodo[] = [
         <br />O contrato esta no <strong>README.md</strong> do projeto.
       </>
     ),
-    status: "pending",
+    status: "done",
     required: true,
     links: [
       {
@@ -127,7 +114,7 @@ export const TODO_LIST: ITodo[] = [
     ],
   },
   {
-    id: "5ce31291-d06b-4940-9d14-0f41d116fe76",
+    id: "5ce31291-d06b-4940-5414-0f41d116fe76",
     ref: "1",
     title: "Filtro por tipo de transação",
     description: (
@@ -145,7 +132,7 @@ export const TODO_LIST: ITodo[] = [
         <strong>CREDIT</strong>, dentro do response retornado pela api.
       </>
     ),
-    status: "pending",
+    status: "done",
     required: true,
     links: [
       {
@@ -180,7 +167,7 @@ export const TODO_LIST: ITodo[] = [
         ObrigadaUm &#128640;
       </>
     ),
-    status: "pending",
+    status: "done",
     required: false,
   },
 ];

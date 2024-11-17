@@ -1,24 +1,3 @@
-:root {
-  --color-main: #fe3e6d;
-  --color-dark-main: #d4265a;
-  --color-white: #ffffff;
-  --color-gray: #6b7076;
-  --color-light-gray: #dfdfdf;
-  --color-lighter-gray: #f0f4f8;
-  --color-error: #ee3636;
-  --color-success: #04aa6d;
-  --color-black: #3b3b3b;
-  --color-blue: #1a93da;
-}
-
-body {
-  font-family: "Montserrat", sans-serif;
-}
-
-* {
-  font-family: inherit;
-}
-
 #page {
   width: 100%;
   max-width: calc(100% - 50px);

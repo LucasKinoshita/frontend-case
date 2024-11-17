@@ -20,6 +20,7 @@ export const FilterButtons = (props: IFilterButtons) => {
       >
         Débito
       </button>
+
       <button
         className={`ibanking__button ${
           selectedEntry === "CREDIT" ? "" : "ibanking__button--selected"
