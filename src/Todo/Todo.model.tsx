@@ -51,6 +51,7 @@ export const useTodoModel = () => {
 
   return {
     items,
+    search,
     searchInputValue,
     handleSearchInputChange,
     handleSearchSubmit,

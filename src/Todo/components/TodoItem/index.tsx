@@ -21,7 +21,7 @@ export function TodoItem(props: ITodoItem) {
     <>
       {items.map((item, order_number) => {
         return (
-          <Container key={item.id}>
+          <Container key={item.id} data-testid="todo-item">
             <ItemNumberOrder>
               {order_number + 1}
               {item.required ? "*" : ""}.

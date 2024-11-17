@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import App from "../App";
-import Todo from "../Todo";
+import { Todo } from "../Todo";
 import { IBanking } from "../IBanking";
 import { Login } from "../Login";
 import { ProtectRoutes } from "./privateRoutes";
