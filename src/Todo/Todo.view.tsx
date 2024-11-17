@@ -3,6 +3,7 @@ import { TodoHeader } from "./components/TodoHeader";
 import { TodoItem } from "./components/TodoItem";
 import { TodoSearch } from "./components/TodoSearch";
 import { useTodoModel } from "./Todo.model";
+import { Container, TodoWrapper, TodoList } from "./Todo.styles";
 
 type TodoViewProps = ReturnType<typeof useTodoModel>;
 
@@ -17,18 +18,18 @@ export const TodoView = (props: TodoViewProps) => {
   } = props;
 
   return (
-    <main id="page" className="todo">
+    <Container>
       <div>
         <TodoHeader />
 
-        <div className="todo__wrapper">
+        <TodoWrapper>
           <TodoSearch
             searchInputValue={searchInputValue}
             handleChange={handleSearchInputChange}
             handleSubmit={handleSearchSubmit}
           />
 
-          <ul className="todo__list">
+          <TodoList>
             <ResultsNotFound totalItems={items.length} />
 
             <TodoItem
@@ -36,9 +37,9 @@ export const TodoView = (props: TodoViewProps) => {
               onChangeStatus={handleToggleTaskStatus}
               onDelete={handleDeleteTaskById}
             />
-          </ul>
-        </div>
+          </TodoList>
+        </TodoWrapper>
       </div>
-    </main>
+    </Container>
   );
 };

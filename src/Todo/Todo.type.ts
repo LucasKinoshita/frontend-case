@@ -1,6 +1,6 @@
 export type ITodoStatus = "pending" | "done";
 
-interface Link {
+interface ILink {
   name: string;
   url: string;
 }
@@ -10,7 +10,7 @@ export interface ITodo {
   ref: string;
   title: string;
   description: React.ReactNode;
-  status: "pending" | "done";
+  status: ITodoStatus;
   required: boolean;
-  links?: Link[];
+  links?: ILink[];
 }
