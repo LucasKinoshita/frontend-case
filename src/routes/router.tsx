@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import App from "../App";
-import { Todo } from "../Todo";
-import { IBanking } from "../IBanking";
-import { Login } from "../Login";
+import { Todo } from "../pages/Todo";
+import { IBanking } from "../pages/IBanking";
+import { Login } from "../pages/Login";
 import { ProtectRoutes } from "./privateRoutes";
 
 export function Router() {

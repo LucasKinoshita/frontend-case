@@ -1,5 +1,5 @@
-import logoFullImage from "../assets/logo-full.svg";
-import arrowRightImage from "../assets/arrow-right.svg";
+import logoFullImage from "../../assets/logo-full.svg";
+import arrowRightImage from "../../assets/arrow-right.svg";
 import {
   LoginContainer,
   Logo,

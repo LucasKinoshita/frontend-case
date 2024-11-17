@@ -1,6 +1,6 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { IBankTransactionsService } from "../../services/BankTransactions/BankTransactions.service";
-import { successfulBankTransactionsServiceMock } from "../../tests/mocks/bankingServiceMock";
+import { IBankTransactionsService } from "../../../services/BankTransactions/BankTransactions.service";
+import { successfulBankTransactionsServiceMock } from "../../../tests/mocks/bankingServiceMock";
 import { useLoginModel } from "../Login.model";
 import { LoginView } from "../Login.view";
 import { BrowserRouter, NavigateFunction } from "react-router-dom";

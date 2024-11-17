@@ -1,4 +1,4 @@
-import { LoginFormData } from "../../Login/Login.type";
+import { LoginFormData } from "../../pages/Login/Login.type";
 import { HttpClient, HttpMethod } from "../../infra/http/HttpClient.type";
 
 export interface IBankTransactionsService {

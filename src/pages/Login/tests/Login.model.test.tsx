@@ -1,6 +1,6 @@
 import { renderHook, waitFor } from "@testing-library/react";
 import { useLoginModel } from "../Login.model";
-import { successfulBankTransactionsServiceMock } from "../../tests/mocks/bankingServiceMock";
+import { successfulBankTransactionsServiceMock } from "../../../tests/mocks/bankingServiceMock";
 
 const mockNavigate = vi.fn();
 

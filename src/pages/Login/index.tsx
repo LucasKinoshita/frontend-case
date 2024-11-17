@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { HttpClienteAxiosAdpter } from "../infra/http/HttpClient";
-import { createBankTransactionsService } from "../services/BankTransactions/BankTransactions.service";
+import { HttpClienteAxiosAdpter } from "../../infra/http/HttpClient";
+import { createBankTransactionsService } from "../../services/BankTransactions/BankTransactions.service";
 import { useLoginModel } from "./Login.model";
 import { LoginView } from "./Login.view";
 

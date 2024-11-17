@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { loginSchema } from "./Login.schema";
 import { LoginFormData } from "./Login.type";
-import { IBankTransactionsService } from "../services/BankTransactions/BankTransactions.service";
+import { IBankTransactionsService } from "../../services/BankTransactions/BankTransactions.service";
 
 export function useLoginModel(
   bankTransactionsService: IBankTransactionsService,

@@ -10,7 +10,7 @@ import {
   Disclaimer,
 } from "./TodoHeader.styles";
 
-import logoImage from "../../../assets/logo.svg";
+import logoImage from "../../../../assets/logo.svg";
 
 export function TodoHeader() {
   return (

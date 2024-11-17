@@ -1,7 +1,7 @@
-import { formatDateWithTime } from "../../../utils/formatDate";
-import { formatCurrency } from "../../../utils/formatCurrency";
-import arrowUpIcon from "../../../assets/arrow-up-out.svg";
-import arrowDownInIcon from "../../../assets/arrow-down-in.svg";
+import { formatDateWithTime } from "../../../../utils/formatDate";
+import { formatCurrency } from "../../../../utils/formatCurrency";
+import arrowUpIcon from "../../../../assets/arrow-up-out.svg";
+import arrowDownInIcon from "../../../../assets/arrow-down-in.svg";
 import "./style.css";
 
 interface ITransaction {

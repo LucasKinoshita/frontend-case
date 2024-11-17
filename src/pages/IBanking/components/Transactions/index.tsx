@@ -1,6 +1,6 @@
-import { formatDateWithMonthName } from "../../../utils/formatDate";
-import { formatCurrency } from "../../../utils/formatCurrency";
-import { Transaction } from "../../components/Transaction";
+import { formatDateWithMonthName } from "../../../../utils/formatDate";
+import { formatCurrency } from "../../../../utils/formatCurrency";
+import { Transaction } from "../Transaction";
 import "./styles.css";
 
 interface ITransaction {
