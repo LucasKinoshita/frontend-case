@@ -25,14 +25,14 @@ export interface ITransaction {
 }
 
 export const Transaction = (props: ITransaction) => {
-  const { amount, dateEvent, description, entry, id, name } = props;
+  const { amount, dateEvent, description, entry, name } = props;
 
   const getTransactionIcon = (entry: string) => {
     return entry === "DEBIT" ? arrowUpIcon : arrowDownInIcon;
   };
 
   return (
-    <TransactionContainer key={id}>
+    <TransactionContainer data-testid="transaction">
       <TransactionInfo>
         <TransactionIcon>
           <img
