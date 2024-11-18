@@ -6,5 +6,12 @@ export function formatDateWithTime(data: string) {
 }
 
 export function formatDateWithMonthName(data: string) {
-  return format(new Date(data), "dd 'de' MMMM", { locale: ptBR });
+  const date = new Date(data);
+  const localDate = new Date(
+    date.getUTCFullYear(),
+    date.getUTCMonth(),
+    date.getUTCDate()
+  );
+
+  return format(localDate, "dd 'de' MMMM", { locale: ptBR });
 }

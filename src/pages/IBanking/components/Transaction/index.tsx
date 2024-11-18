@@ -2,9 +2,18 @@ import { formatDateWithTime } from "../../../../utils/formatDate";
 import { formatCurrency } from "../../../../utils/formatCurrency";
 import arrowUpIcon from "../../../../assets/arrow-up-out.svg";
 import arrowDownInIcon from "../../../../assets/arrow-down-in.svg";
-import "./style.css";
+import {
+  TransactionContainer,
+  TransactionInfo,
+  TransactionIcon,
+  TransactionName,
+  TransactionDetails,
+  TransactionDescription,
+  TransactionDate,
+  TransactionAmount,
+} from "./Transaction.styles";
 
-interface ITransaction {
+export interface ITransaction {
   id: string;
   description: string;
   label: string;
@@ -19,45 +28,30 @@ export const Transaction = (props: ITransaction) => {
   const { amount, dateEvent, description, entry, id, name } = props;
 
   const getTransactionIcon = (entry: string) => {
-    if (entry === "DEBIT") return arrowUpIcon;
-    if (entry === "CREDIT") return arrowDownInIcon;
+    return entry === "DEBIT" ? arrowUpIcon : arrowDownInIcon;
   };
 
   return (
-    <div className="ibanking__transaction" key={id}>
-      <div className="ibanking__transaction__info">
-        <span className="ibanking__transaction__icon">
-          <img src={getTransactionIcon(entry)} alt="arrow" />
-        </span>
-        <span
-          className={`${
-            entry === "CREDIT"
-              ? "ibanking__transaction__name--credit"
-              : "ibanking__transaction__name"
-          }`}
-        >
-          {name}
-        </span>
-      </div>
+    <TransactionContainer key={id}>
+      <TransactionInfo>
+        <TransactionIcon>
+          <img
+            src={getTransactionIcon(entry)}
+            alt={entry === "CREDIT" ? "Credit icon" : "Debit icon"}
+          />
+        </TransactionIcon>
+        <TransactionName isCredit={entry === "CREDIT"}>{name}</TransactionName>
+      </TransactionInfo>
 
-      <div className="ibanking__transaction__details">
-        <span className="ibanking__transaction__description">
-          {description}
-        </span>
-        <span className="ibanking__transaction__date">
-          {formatDateWithTime(dateEvent)}
-        </span>
-      </div>
+      <TransactionDetails>
+        <TransactionDescription>{description}</TransactionDescription>
+        <TransactionDate>{formatDateWithTime(dateEvent)}</TransactionDate>
+      </TransactionDetails>
 
-      <span
-        className={`${
-          entry === "CREDIT"
-            ? "ibanking__transaction__amount--credit"
-            : "ibanking__transaction__amount"
-        }`}
-      >
-        {entry === "DEBIT" ? "- " : "+ "} {formatCurrency(amount)}
-      </span>
-    </div>
+      <TransactionAmount isCredit={entry === "CREDIT"}>
+        {entry === "DEBIT" ? "- " : "+ "}
+        {formatCurrency(amount)}
+      </TransactionAmount>
+    </TransactionContainer>
   );
 };

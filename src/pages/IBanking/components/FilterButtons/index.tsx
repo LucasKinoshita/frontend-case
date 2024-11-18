@@ -1,34 +1,36 @@
-import "./styles.css";
+import { ButtonsContainer, Button } from "./FilterButtons.style";
 
 interface IFilterButtons {
   selectedEntry: "DEBIT" | "CREDIT" | "ALL";
-  setSelectedEntry: (
-    value: React.SetStateAction<"DEBIT" | "CREDIT" | "ALL">
-  ) => void;
+  handleSelectEntry: (entry: "ALL" | "DEBIT" | "CREDIT") => void;
 }
 
-export const FilterButtons = (props: IFilterButtons) => {
-  const { selectedEntry, setSelectedEntry } = props;
-
+export const FilterButtons = ({
+  selectedEntry,
+  handleSelectEntry,
+}: IFilterButtons) => {
   return (
-    <div className="ibanking__buttons">
-      <button
-        className={`ibanking__button ${
-          selectedEntry === "DEBIT" ? "" : "ibanking__button--selected"
-        }`}
-        onClick={() => setSelectedEntry("DEBIT")}
+    <ButtonsContainer>
+      <Button
+        isSelected={selectedEntry === "ALL"}
+        onClick={() => handleSelectEntry("ALL")}
+      >
+        Todos
+      </Button>
+
+      <Button
+        isSelected={selectedEntry === "DEBIT"}
+        onClick={() => handleSelectEntry("DEBIT")}
       >
         Débito
-      </button>
+      </Button>
 
-      <button
-        className={`ibanking__button ${
-          selectedEntry === "CREDIT" ? "" : "ibanking__button--selected"
-        }`}
-        onClick={() => setSelectedEntry("CREDIT")}
+      <Button
+        isSelected={selectedEntry === "CREDIT"}
+        onClick={() => handleSelectEntry("CREDIT")}
       >
         Crédito
-      </button>
-    </div>
+      </Button>
+    </ButtonsContainer>
   );
 };
