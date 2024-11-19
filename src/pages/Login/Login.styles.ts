@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 const LoginContainer = styled.main`
-  width: calc(100% - 50px);
-  max-width: 674px;
-  margin: 0 auto;
-  padding: 97px 87px 87px;
-  border-radius: 0 0 16px 16px;
   background-color: var(--color-dark-main);
+  border-radius: 0 0 16px 16px;
+  margin: 0 auto;
+  padding: 6.0625rem 5.4375rem 5.4375rem;
+  width: calc(100% - 50px);
+  max-width: 42.125rem;
 `;
 
 const Logo = styled.img`
@@ -15,10 +15,10 @@ const Logo = styled.img`
 `;
 
 const Title = styled.h1`
-  font-size: 28px;
-  line-height: 38px;
   color: var(--color-white);
-  margin: 84px 0 48px;
+  font-size: 1.75rem;
+  line-height: 2.375rem;
+  margin: 5.25rem 0 3rem;
   text-align: center;
 `;
 
@@ -28,36 +28,36 @@ const Form = styled.form`
 `;
 
 const InputContainer = styled.div`
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 `;
 
 const Input = styled.input`
-  display: block;
-  width: 100%;
-  font-size: 16px;
-  line-height: 16px;
-  padding: 20px 16px;
-  border-radius: 16px;
   background-color: var(--color-lighter-gray);
   border: none;
+  border-radius: 16px;
+  display: block;
+  font-size: 1rem;
+  line-height: 1rem;
+  padding: 1.25rem 1rem;
+  width: 100%;
 `;
 
 const ErrorMessage = styled.p`
   color: var(--color-black);
-  font-size: 14px;
-  margin-top: 8px;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
 `;
 
 const Button = styled.button`
+  align-items: center;
+  background-color: var(--color-white);
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 20px 16px;
-  margin-top: 48px;
-  border-radius: 16px;
-  background-color: var(--color-white);
-  cursor: pointer;
-  border: none;
+  margin-top: 3rem;
+  padding: 1.25rem 1rem;
   transition: background-color 0.3s;
 
   &:hover {
@@ -66,17 +66,17 @@ const Button = styled.button`
 `;
 
 const ArrowIcon = styled.img`
-  margin-left: 8px;
+  margin-left: 0.5rem;
 `;
 
 export {
+  ArrowIcon,
+  Button,
+  ErrorMessage,
+  Form,
+  Input,
+  InputContainer,
   LoginContainer,
   Logo,
   Title,
-  Form,
-  InputContainer,
-  Input,
-  ErrorMessage,
-  Button,
-  ArrowIcon,
 };

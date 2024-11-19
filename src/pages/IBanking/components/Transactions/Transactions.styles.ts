@@ -9,7 +9,7 @@ const TransactionsHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
-  margin-top: 1.25rem;
+  margin-top: 1.5rem;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -19,11 +19,12 @@ const TransactionsHeader = styled.div`
 `;
 
 const HeaderDate = styled.span`
-  font-size: 12px;
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
 `;
 
 const HeaderBalance = styled.span`
-  font-size: 12px;
+  font-size: 0.75rem;
 `;
 
 const TransactionsList = styled.div`
@@ -59,9 +60,9 @@ const TransactionsList = styled.div`
 `;
 
 export {
-  TransactionsList,
   HeaderBalance,
   HeaderDate,
-  TransactionsHeader,
   TransactionsContainer,
+  TransactionsHeader,
+  TransactionsList,
 };
