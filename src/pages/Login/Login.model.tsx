@@ -15,6 +15,7 @@ export function useLoginModel(
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
@@ -40,9 +41,10 @@ export function useLoginModel(
   useEffect(() => {
     const token = localStorage.getItem("auth_token");
     if (token) {
+      reset();
       navigate("/ibanking");
     }
-  }, [navigate]);
+  }, [navigate, reset]);
 
   return {
     register,
