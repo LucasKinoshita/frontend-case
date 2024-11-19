@@ -1,7 +1,7 @@
+import { ChangeEvent, FormEvent } from "react";
 import { renderHook, waitFor } from "@testing-library/react";
 import { useTodoModel } from "../Todo.model";
 import { TODO_LIST } from "../Todo.initialState";
-import { ChangeEvent, FormEvent } from "react";
 
 describe("useTodoModel", () => {
   it("should initialize items from TODO_LIST", () => {

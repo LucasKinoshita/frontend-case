@@ -1,5 +1,7 @@
+import { Toaster } from "react-hot-toast";
 import logoFullImage from "../../assets/logo-full.svg";
 import arrowRightImage from "../../assets/arrow-right.svg";
+import { useLoginModel } from "./Login.model";
 import {
   LoginContainer,
   Logo,
@@ -11,8 +13,6 @@ import {
   Button,
   ArrowIcon,
 } from "./Login.styles";
-import { useLoginModel } from "./Login.model";
-import { Toaster } from "react-hot-toast";
 
 type LoginViewProps = ReturnType<typeof useLoginModel>;
 

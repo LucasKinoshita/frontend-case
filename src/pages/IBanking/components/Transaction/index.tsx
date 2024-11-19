@@ -2,6 +2,7 @@ import { formatDateWithTime } from "../../../../utils/formatDate";
 import { formatCurrency } from "../../../../utils/formatCurrency";
 import arrowUpIcon from "../../../../assets/arrow-up-out.svg";
 import arrowDownInIcon from "../../../../assets/arrow-down-in.svg";
+import { ENTRY } from "../../../../constants";
 import {
   TransactionContainer,
   TransactionInfo,
@@ -28,7 +29,7 @@ export const Transaction = (props: ITransaction) => {
   const { amount, dateEvent, description, entry, name } = props;
 
   const getTransactionIcon = (entry: string) => {
-    return entry === "DEBIT" ? arrowUpIcon : arrowDownInIcon;
+    return entry === ENTRY.Debit ? arrowUpIcon : arrowDownInIcon;
   };
 
   return (
