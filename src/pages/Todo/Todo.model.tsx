@@ -6,6 +6,7 @@ export const useTodoModel = () => {
   const [items, setItems] = useState<ITodo[]>(TODO_LIST);
   const [searchInputValue, setSearchInputValue] = useState("");
   const [search, setSearch] = useState("");
+  const [filteredItems, setFilteredItems] = useState<ITodo[]>(items);
 
   const handleSearchInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchInputValue(event.target.value);
@@ -35,22 +36,22 @@ export const useTodoModel = () => {
     const isQueryEmpty = (query: string) => !query.trim();
 
     const filterItemsByTitle = (query: string) => {
-      return TODO_LIST.filter((item) =>
+      return items.filter((item) =>
         item.title.toLowerCase().includes(query.toLowerCase())
       );
     };
 
     const getFilteredItems = (filterQuery: string) => {
-      if (isQueryEmpty(filterQuery)) return TODO_LIST;
+      if (isQueryEmpty(filterQuery)) return items;
 
       return filterItemsByTitle(filterQuery);
     };
 
-    setItems(getFilteredItems(search));
-  }, [search]);
+    setFilteredItems(getFilteredItems(search));
+  }, [search, items]);
 
   return {
-    items,
+    items: filteredItems,
     search,
     searchInputValue,
     handleSearchInputChange,
