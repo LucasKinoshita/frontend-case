@@ -4,7 +4,7 @@ interface IResultsNotFound {
   totalItems: number;
 }
 
-export function ResultsNotFound(props: IResultsNotFound) {
+export default function ResultsNotFound(props: IResultsNotFound) {
   const { totalItems } = props;
 
   return (

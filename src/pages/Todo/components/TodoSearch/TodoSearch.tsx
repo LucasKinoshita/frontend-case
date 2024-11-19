@@ -7,7 +7,7 @@ interface TodoSearchProps {
   handleSubmit: (event: FormEvent<HTMLFormElement>) => void;
 }
 
-export function TodoSearch(props: TodoSearchProps) {
+export default function TodoSearch(props: TodoSearchProps) {
   const { searchInputValue, handleChange, handleSubmit } = props;
 
   return (

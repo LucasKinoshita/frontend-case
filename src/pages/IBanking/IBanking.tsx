@@ -1,14 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { HttpClienteAxiosAdpter } from "../../infra/http/HttpClient";
 import { createBankTransactionsService } from "../../services/BankTransactions/BankTransactions.service";
-import { useLoginModel } from "./Login.model";
-import { LoginView } from "./Login.view";
+import { useIBankingModel } from "./IBanking.model";
+import { IBankingView } from "./IBanking.view";
 
-export function Login() {
+export default function IBanking() {
   const navigate = useNavigate();
   const httpAxiosAdpter = HttpClienteAxiosAdpter;
   const bankingService = createBankTransactionsService(httpAxiosAdpter);
-  const methods = useLoginModel(bankingService, navigate);
+  const methods = useIBankingModel(bankingService, navigate);
 
-  return <LoginView {...methods} />;
+  return <IBankingView {...methods} />;
 }

@@ -25,7 +25,7 @@ export interface ITransaction {
   status: string;
 }
 
-export const Transaction = (props: ITransaction) => {
+export default function Transaction(props: ITransaction) {
   const { amount, dateEvent, description, entry, name } = props;
 
   const getTransactionIcon = (entry: string) => {
@@ -55,4 +55,4 @@ export const Transaction = (props: ITransaction) => {
       </TransactionAmount>
     </TransactionContainer>
   );
-};
+}

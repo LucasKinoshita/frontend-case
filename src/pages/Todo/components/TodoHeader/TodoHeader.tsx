@@ -11,7 +11,7 @@ import {
   Disclaimer,
 } from "./TodoHeader.styles";
 
-export function TodoHeader() {
+export default function TodoHeader() {
   return (
     <Header>
       <Logo src={logoImage} alt="Cora" title="Cora" />

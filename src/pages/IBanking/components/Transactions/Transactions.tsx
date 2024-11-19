@@ -15,7 +15,7 @@ interface ITransactions {
   filteredTransactions: ITransactionList[];
 }
 
-export const Transactions = (props: ITransactions) => {
+export default function Transactions(props: ITransactions) {
   const { filteredTransactions, groupedTransactions } = props;
 
   return (
@@ -46,4 +46,4 @@ export const Transactions = (props: ITransactions) => {
       })}
     </>
   );
-};
+}

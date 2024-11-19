@@ -14,7 +14,7 @@ interface ITodoItem {
   onChangeStatus: (id: string, status: ITodoStatus) => void;
 }
 
-export function TodoItem(props: ITodoItem) {
+export default function TodoItem(props: ITodoItem) {
   const { items, onChangeStatus, onDelete } = props;
 
   return (

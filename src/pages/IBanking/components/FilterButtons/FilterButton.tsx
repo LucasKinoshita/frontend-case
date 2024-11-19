@@ -8,11 +8,11 @@ interface IFilterButtons {
   handleLogout: () => void;
 }
 
-export const FilterButtons = ({
+export default function FilterButtons({
   selectedEntry,
   handleSelectEntry,
   handleLogout,
-}: IFilterButtons) => {
+}: IFilterButtons) {
   return (
     <ButtonsContainer>
       <Button
@@ -39,4 +39,4 @@ export const FilterButtons = ({
       <Button onClick={handleLogout}>Sair</Button>
     </ButtonsContainer>
   );
-};
+}
