@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
-import { IGroupedTransactions, IResponseList } from "./IBanking.type";
+import {
+  IEntry,
+  IGroupedTransactions,
+  ITransactionList,
+} from "./IBanking.type";
 import { IBankTransactionsService } from "../../services/BankTransactions/BankTransactions.service";
+import { ENTRY } from "../../constants";
 
 export function useIBankingModel(
   bankTransactionsService: IBankTransactionsService
 ) {
-  const [transactions, setTransactions] = useState<IResponseList[]>([]);
-  const [selectedEntry, setSelectedEntry] = useState<
-    "ALL" | "DEBIT" | "CREDIT"
-  >("ALL");
+  const [transactions, setTransactions] = useState<ITransactionList[]>([]);
+  const [selectedEntry, setSelectedEntry] = useState<IEntry>(ENTRY.All);
 
-  const handleSelectEntry = (entry: "ALL" | "DEBIT" | "CREDIT") => {
+  const handleSelectEntry = (entry: IEntry) => {
     setSelectedEntry(entry);
   };
 
@@ -18,7 +21,7 @@ export function useIBankingModel(
     .map((transaction) => ({
       ...transaction,
       items:
-        selectedEntry === "ALL"
+        selectedEntry === ENTRY.All
           ? transaction.items
           : transaction.items.filter((item) => item.entry === selectedEntry),
     }))
@@ -31,10 +34,10 @@ export function useIBankingModel(
       }
 
       transaction.items.forEach((item) => {
-        if (item.entry === "DEBIT")
+        if (item.entry === ENTRY.Debit)
           acc[transaction.date].debitTotal += item.amount;
 
-        if (item.entry === "CREDIT")
+        if (item.entry === ENTRY.Credit)
           acc[transaction.date].creditTotal += item.amount;
       });
 

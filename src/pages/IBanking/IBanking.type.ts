@@ -1,37 +1,25 @@
-export interface IResponseList {
-  items: {
-    id: string;
-    description: string;
-    label: string;
-    entry: "DEBIT" | "CREDIT";
-    amount: number;
-    name: string;
-    dateEvent: string;
-    status: string;
-  }[];
+interface IItem {
+  id: string;
+  description: string;
+  label: string;
+  entry: "DEBIT" | "CREDIT";
+  amount: number;
+  name: string;
+  dateEvent: string;
+  status: string;
+}
+
+export interface ITransactionList {
+  items: IItem[];
   date: string;
 }
 
-export interface IResponseListLong {
+export interface ITransactionListLong {
   results: {
-    items: {
-      id: string;
-      description: string;
-      label: string;
-      entry: "DEBIT" | "CREDIT";
-      amount: number;
-      name: string;
-      dateEvent: string;
-      status: string;
-    }[];
+    items: IItem[];
     date: string;
   }[];
   itemsTotal: number;
-}
-
-export interface ITransactions {
-  selectedEntry: "DEBIT" | "CREDIT" | "ALL";
-  transactions: IResponseList[];
 }
 
 export interface IGroupedTransactions {
@@ -40,3 +28,5 @@ export interface IGroupedTransactions {
     creditTotal: number;
   };
 }
+
+export type IEntry = "DEBIT" | "CREDIT" | "ALL";

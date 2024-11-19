@@ -12,6 +12,7 @@ import {
   ArrowIcon,
 } from "./Login.styles";
 import { useLoginModel } from "./Login.model";
+import { Toaster } from "react-hot-toast";
 
 type LoginViewProps = ReturnType<typeof useLoginModel>;
 
@@ -20,6 +21,7 @@ export function LoginView(props: LoginViewProps) {
 
   return (
     <LoginContainer>
+      <Toaster position="bottom-right" />
       <Logo src={logoFullImage} alt="Cora" title="Cora" />
       <Title>Fazer Login</Title>
 

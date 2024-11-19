@@ -1,7 +1,7 @@
 import { formatDateWithMonthName } from "../../../../utils/formatDate";
 import { formatCurrency } from "../../../../utils/formatCurrency";
+import { IGroupedTransactions, ITransactionList } from "../../IBanking.type";
 import { Transaction } from "../Transaction";
-import { IGroupedTransactions, IResponseList } from "../../IBanking.type";
 import {
   TransactionsList,
   HeaderBalance,
@@ -12,7 +12,7 @@ import {
 
 interface ITransactions {
   groupedTransactions: IGroupedTransactions;
-  filteredTransactions: IResponseList[];
+  filteredTransactions: ITransactionList[];
 }
 
 export const Transactions = (props: ITransactions) => {

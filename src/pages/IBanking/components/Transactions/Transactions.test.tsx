@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
-import { IGroupedTransactions, IResponseList } from "../../IBanking.type";
+import { IGroupedTransactions, ITransactionList } from "../../IBanking.type";
 import { Transactions } from ".";
 
 const mockGroupedTransactions: IGroupedTransactions = {
   "2024-02-01": { debitTotal: 100, creditTotal: 150 },
 };
 
-const mockFilteredTransactions: IResponseList[] = [
+const mockFilteredTransactions: ITransactionList[] = [
   {
     date: "2024-02-01",
     items: [

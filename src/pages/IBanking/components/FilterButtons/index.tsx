@@ -1,8 +1,10 @@
+import { ENTRY } from "../../../../constants";
+import { IEntry } from "../../IBanking.type";
 import { ButtonsContainer, Button } from "./FilterButtons.style";
 
 interface IFilterButtons {
-  selectedEntry: "DEBIT" | "CREDIT" | "ALL";
-  handleSelectEntry: (entry: "ALL" | "DEBIT" | "CREDIT") => void;
+  selectedEntry: IEntry;
+  handleSelectEntry: (entry: IEntry) => void;
 }
 
 export const FilterButtons = ({
@@ -12,22 +14,22 @@ export const FilterButtons = ({
   return (
     <ButtonsContainer>
       <Button
-        isSelected={selectedEntry === "ALL"}
-        onClick={() => handleSelectEntry("ALL")}
+        isSelected={selectedEntry === ENTRY.All}
+        onClick={() => handleSelectEntry(ENTRY.All)}
       >
         Todos
       </Button>
 
       <Button
-        isSelected={selectedEntry === "DEBIT"}
-        onClick={() => handleSelectEntry("DEBIT")}
+        isSelected={selectedEntry === ENTRY.Debit}
+        onClick={() => handleSelectEntry(ENTRY.Debit)}
       >
         Débito
       </Button>
 
       <Button
-        isSelected={selectedEntry === "CREDIT"}
-        onClick={() => handleSelectEntry("CREDIT")}
+        isSelected={selectedEntry === ENTRY.Credit}
+        onClick={() => handleSelectEntry(ENTRY.Credit)}
       >
         Crédito
       </Button>

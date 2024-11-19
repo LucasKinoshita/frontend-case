@@ -1,6 +1,7 @@
 import { renderHook, waitFor } from "@testing-library/react";
 import { useLoginModel } from "../Login.model";
 import { successfulBankTransactionsServiceMock } from "../../../tests/mocks/bankingServiceMock";
+import { mockSchemaLoginFormData } from "../../../tests/mocks/schemaIBankingMock";
 
 const mockNavigate = vi.fn();
 
@@ -10,8 +11,11 @@ describe("<useLoginModel />", () => {
       useLoginModel(successfulBankTransactionsServiceMock, mockNavigate)
     );
 
-    await waitFor(async () => {
-      result.current.onSubmit({ cpf: "45685423654", password: "1234" });
+    await waitFor(() => {
+      result.current.onSubmit({
+        cpf: mockSchemaLoginFormData.cpf,
+        password: mockSchemaLoginFormData.password,
+      });
     });
 
     expect(result.current.errors).toEqual({});

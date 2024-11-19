@@ -1,6 +1,7 @@
 import { NavigateFunction } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import toast from "react-hot-toast";
 
 import { loginSchema } from "./Login.schema";
 import { LoginFormData } from "./Login.type";
@@ -19,13 +20,17 @@ export function useLoginModel(
   });
 
   const handleAuthLogin = async (data: LoginFormData) => {
-    const { token } = await bankTransactionsService.signIn({
-      ...data,
-    });
+    try {
+      const { token } = await bankTransactionsService.signIn({
+        ...data,
+      });
 
-    if (token) {
-      localStorage.setItem("auth_token", token);
-      navigate("/ibanking");
+      if (token) {
+        localStorage.setItem("auth_token", token);
+        navigate("/ibanking");
+      }
+    } catch (error) {
+      toast.error("CPF ou senha inválidos");
     }
   };
 

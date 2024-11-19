@@ -1,13 +1,13 @@
 import { LoginFormData } from "../../pages/Login/Login.type";
 import { HttpClient, HttpMethod } from "../../infra/http/HttpClient.type";
 import {
-  IResponseList,
-  IResponseListLong,
+  ITransactionList,
+  ITransactionListLong,
 } from "../../pages/IBanking/IBanking.type";
 
 export interface IBankTransactionsService {
   signIn: (data: LoginFormData) => Promise<{ token: string }>;
-  getTransactions: () => Promise<IResponseList[]>;
+  getTransactions: () => Promise<ITransactionList[]>;
 }
 
 export const createBankTransactionsService = (
@@ -26,7 +26,7 @@ export const createBankTransactionsService = (
   getTransactions: async () => {
     const token = localStorage.getItem("auth_token");
 
-    const response = await httpClient.request<IResponseListLong>({
+    const response = await httpClient.request<ITransactionListLong>({
       endpoint: "/list",
       method: HttpMethod.GET,
       headers: {
