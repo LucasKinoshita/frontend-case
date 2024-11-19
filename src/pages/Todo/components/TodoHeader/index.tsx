@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import logoImage from "../../../../assets/logo.svg";
 import {
   Title,
@@ -15,9 +14,8 @@ import {
 export function TodoHeader() {
   return (
     <Header>
-      <NavLink to="/" title="ir para página inicial">
-        <Logo src={logoImage} alt="Cora" title="Cora" />
-      </NavLink>
+      <Logo src={logoImage} alt="Cora" title="Cora" />
+
       <HGroup>
         <Title>Weekly to-do list &#128467;</Title>
         <Subtitle>

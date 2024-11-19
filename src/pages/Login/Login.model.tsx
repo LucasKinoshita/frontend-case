@@ -29,6 +29,7 @@ export function useLoginModel(
 
       if (token) {
         localStorage.setItem("auth_token", token);
+        reset();
         navigate("/ibanking");
       }
     } catch (error) {
@@ -41,10 +42,9 @@ export function useLoginModel(
   useEffect(() => {
     const token = localStorage.getItem("auth_token");
     if (token) {
-      reset();
       navigate("/ibanking");
     }
-  }, [navigate, reset]);
+  }, [navigate]);
 
   return {
     register,
