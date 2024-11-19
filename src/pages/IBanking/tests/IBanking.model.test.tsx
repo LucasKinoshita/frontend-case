@@ -19,9 +19,8 @@ describe("<useIBankingModel />", () => {
       useIBankingModel(successfulBankTransactionsServiceMock)
     );
 
-    result.current.handleSelectEntry(ENTRY.Credit);
-
     await waitFor(() => {
+      result.current.handleSelectEntry(ENTRY.Credit);
       expect(result.current.selectedEntry).toEqual(ENTRY.Credit);
     });
   });
@@ -31,9 +30,8 @@ describe("<useIBankingModel />", () => {
       useIBankingModel(successfulBankTransactionsServiceMock)
     );
 
-    result.current.handleSelectEntry(ENTRY.All);
-
     await waitFor(() => {
+      result.current.handleSelectEntry(ENTRY.All);
       expect(result.current.selectedEntry).toEqual(ENTRY.All);
       expect(result.current.filteredTransactions[0].items).toHaveLength(2);
     });
@@ -44,9 +42,8 @@ describe("<useIBankingModel />", () => {
       useIBankingModel(successfulBankTransactionsServiceMock)
     );
 
-    result.current.handleSelectEntry(ENTRY.Debit);
-
     await waitFor(() => {
+      result.current.handleSelectEntry(ENTRY.Debit);
       expect(result.current.selectedEntry).toEqual(ENTRY.Debit);
       expect(result.current.filteredTransactions[0].items).toHaveLength(1);
     });
@@ -57,9 +54,8 @@ describe("<useIBankingModel />", () => {
       useIBankingModel(successfulBankTransactionsServiceMock)
     );
 
-    result.current.handleSelectEntry(ENTRY.Credit);
-
     await waitFor(() => {
+      result.current.handleSelectEntry(ENTRY.Credit);
       expect(result.current.selectedEntry).toEqual(ENTRY.Credit);
       expect(result.current.filteredTransactions[0].items).toHaveLength(1);
     });

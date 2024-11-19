@@ -31,10 +31,11 @@ const TransactionIcon = styled.span`
   }
 `;
 
-const TransactionName = styled.span<{ isCredit: boolean }>`
-  color: ${(props) =>
-    props.isCredit ? "var(--color-blue)" : "var(--color-black)"};
-`;
+const TransactionName = styled("span").withConfig({
+  shouldForwardProp: (prop) => prop !== "isCredit",
+})<{ isCredit: boolean }>(({ isCredit }) => ({
+  color: isCredit ? "var(--color-blue)" : "var(--color-black)",
+}));
 
 const TransactionDetails = styled.div`
   display: grid;
@@ -60,20 +61,21 @@ const TransactionDate = styled.span`
   text-align: right;
 `;
 
-const TransactionAmount = styled.span<{ isCredit: boolean }>`
-  display: flex;
-  font-size: 0.875rem;
-  font-weight: bold;
-  justify-content: flex-end;
-  text-align: right;
-  color: ${(props) =>
-    props.isCredit ? "var(--color-blue)" : "var(--color-black)"};
+const TransactionAmount = styled("span").withConfig({
+  shouldForwardProp: (prop) => prop !== "isCredit",
+})<{ isCredit: boolean }>(({ isCredit }) => ({
+  display: "flex",
+  fontSize: "0.875rem",
+  fontWeight: "bold",
+  justifyContent: "flex-end",
+  textAlign: "right",
+  color: isCredit ? "var(--color-blue)" : "var(--color-black)",
 
-  @media (max-width: 768px) {
-    justify-content: flex-start;
-    text-align: left;
-  }
-`;
+  "@media (max-width: 768px)": {
+    justifyContent: "flex-start",
+    textAlign: "left",
+  },
+}));
 
 export {
   TransactionContainer,
