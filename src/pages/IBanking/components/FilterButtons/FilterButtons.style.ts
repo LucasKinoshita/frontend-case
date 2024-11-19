@@ -1,13 +1,19 @@
 import styled from "styled-components";
 
 interface ButtonProps {
-  isSelected: boolean;
+  isSelected?: boolean;
 }
 
 const ButtonsContainer = styled.div`
   display: flex;
   gap: 1rem;
   margin-bottom: 2.5rem;
+
+  :last-child {
+    margin-left: auto;
+    background: var(--color-dark-main);
+    color: var(--color-white);
+  }
 `;
 
 const Button = styled("button").withConfig({

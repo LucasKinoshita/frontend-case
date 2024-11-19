@@ -5,11 +5,13 @@ import { ButtonsContainer, Button } from "./FilterButtons.style";
 interface IFilterButtons {
   selectedEntry: IEntry;
   handleSelectEntry: (entry: IEntry) => void;
+  handleLogout: () => void;
 }
 
 export const FilterButtons = ({
   selectedEntry,
   handleSelectEntry,
+  handleLogout,
 }: IFilterButtons) => {
   return (
     <ButtonsContainer>
@@ -33,6 +35,8 @@ export const FilterButtons = ({
       >
         Crédito
       </Button>
+
+      <Button onClick={handleLogout}>Sair</Button>
     </ButtonsContainer>
   );
 };

@@ -3,10 +3,12 @@ import { useIBankingModel } from "../IBanking.model";
 import { successfulBankTransactionsServiceMock } from "../../../tests/mocks/bankingServiceMock";
 import { ENTRY } from "../../../constants";
 
+const mockNavigate = vi.fn();
+
 describe("<useIBankingModel />", () => {
   it("should show correctly transactions loaded", async () => {
     const { result } = renderHook(() =>
-      useIBankingModel(successfulBankTransactionsServiceMock)
+      useIBankingModel(successfulBankTransactionsServiceMock, mockNavigate)
     );
 
     await waitFor(() => {
@@ -16,7 +18,7 @@ describe("<useIBankingModel />", () => {
 
   it("should select correct entry", async () => {
     const { result } = renderHook(() =>
-      useIBankingModel(successfulBankTransactionsServiceMock)
+      useIBankingModel(successfulBankTransactionsServiceMock, mockNavigate)
     );
 
     await waitFor(() => {
@@ -27,7 +29,7 @@ describe("<useIBankingModel />", () => {
 
   it("should select correct transaction filtered when entry is ALL", async () => {
     const { result } = renderHook(() =>
-      useIBankingModel(successfulBankTransactionsServiceMock)
+      useIBankingModel(successfulBankTransactionsServiceMock, mockNavigate)
     );
 
     await waitFor(() => {
@@ -39,7 +41,7 @@ describe("<useIBankingModel />", () => {
 
   it("should select correct transaction filtered when entry is DEBIT", async () => {
     const { result } = renderHook(() =>
-      useIBankingModel(successfulBankTransactionsServiceMock)
+      useIBankingModel(successfulBankTransactionsServiceMock, mockNavigate)
     );
 
     await waitFor(() => {
@@ -51,7 +53,7 @@ describe("<useIBankingModel />", () => {
 
   it("should select correct transaction filtered when entry is CREDIT", async () => {
     const { result } = renderHook(() =>
-      useIBankingModel(successfulBankTransactionsServiceMock)
+      useIBankingModel(successfulBankTransactionsServiceMock, mockNavigate)
     );
 
     await waitFor(() => {
@@ -63,7 +65,7 @@ describe("<useIBankingModel />", () => {
 
   it("should return correctly the transactions amount separated by credit and debit", async () => {
     const { result } = renderHook(() =>
-      useIBankingModel(successfulBankTransactionsServiceMock)
+      useIBankingModel(successfulBankTransactionsServiceMock, mockNavigate)
     );
 
     await waitFor(() => {
@@ -73,6 +75,18 @@ describe("<useIBankingModel />", () => {
           debitTotal: 150000,
         },
       });
+    });
+  });
+
+  it("should call navigate when handleLogout is called", async () => {
+    const { result } = renderHook(() =>
+      useIBankingModel(successfulBankTransactionsServiceMock, mockNavigate)
+    );
+
+    await waitFor(() => {
+      result.current.handleLogout();
+      expect(mockNavigate).toHaveBeenCalledTimes(1);
+      expect(mockNavigate).toHaveBeenCalledWith("/login");
     });
   });
 });

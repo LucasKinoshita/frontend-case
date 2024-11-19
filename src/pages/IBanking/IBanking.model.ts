@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { NavigateFunction } from "react-router-dom";
 import {
   IEntry,
   IGroupedTransactions,
@@ -8,7 +9,8 @@ import { IBankTransactionsService } from "../../services/BankTransactions/BankTr
 import { ENTRY } from "../../constants";
 
 export function useIBankingModel(
-  bankTransactionsService: IBankTransactionsService
+  bankTransactionsService: IBankTransactionsService,
+  navigate: NavigateFunction
 ) {
   const [transactions, setTransactions] = useState<ITransactionList[]>([]);
   const [selectedEntry, setSelectedEntry] = useState<IEntry>(ENTRY.All);
@@ -51,6 +53,11 @@ export function useIBankingModel(
     setTransactions(response);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("auth_token");
+    navigate("/login");
+  };
+
   useEffect(() => {
     getTransactions();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -62,5 +69,6 @@ export function useIBankingModel(
     handleSelectEntry,
     filteredTransactions,
     groupedTransactions,
+    handleLogout,
   };
 }

@@ -1,5 +1,5 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { BrowserRouter, NavigateFunction } from "react-router-dom";
+import { NavigateFunction } from "react-router-dom";
 import { IBankTransactionsService } from "../../../services/BankTransactions/BankTransactions.service";
 import {
   failedIBankingServiceMock,
@@ -19,11 +19,7 @@ const MakeSutSuccess = ({
   navigate = vi.fn(),
 }: MakeSutProps) => {
   const methods = useLoginModel(service, navigate);
-  return (
-    <BrowserRouter>
-      <LoginView {...methods} />
-    </BrowserRouter>
-  );
+  return <LoginView {...methods} />;
 };
 
 const MakeSutFailed = ({
@@ -31,11 +27,7 @@ const MakeSutFailed = ({
   navigate = vi.fn(),
 }: MakeSutProps) => {
   const methods = useLoginModel(service, navigate);
-  return (
-    <BrowserRouter>
-      <LoginView {...methods} />
-    </BrowserRouter>
-  );
+  return <LoginView {...methods} />;
 };
 
 describe("<Login />", () => {

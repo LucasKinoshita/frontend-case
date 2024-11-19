@@ -1,4 +1,5 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { NavigateFunction } from "react-router-dom";
 import { IBankTransactionsService } from "../../../services/BankTransactions/BankTransactions.service";
 import { successfulBankTransactionsServiceMock } from "../../../tests/mocks/bankingServiceMock";
 import { useIBankingModel } from "../IBanking.model";
@@ -6,12 +7,14 @@ import { IBankingView } from "../IBanking.view";
 
 type MakeSutProps = {
   service?: IBankTransactionsService;
+  navigate?: NavigateFunction;
 };
 
 const MakeSut = ({
   service = successfulBankTransactionsServiceMock,
+  navigate = vi.fn(),
 }: MakeSutProps) => {
-  const methods = useIBankingModel(service);
+  const methods = useIBankingModel(service, navigate);
   return <IBankingView {...methods} />;
 };
 
@@ -63,5 +66,18 @@ describe("<IBanking />", () => {
     });
 
     expect(screen.getAllByTestId("transaction")).toHaveLength(1);
+  });
+
+  it("should navigate to the login page when the exit button is clicked", async () => {
+    const mockNavigate = vi.fn();
+    render(<MakeSut navigate={mockNavigate} />);
+
+    await waitFor(() => {
+      const buttonSubmit = screen.getByRole("button", { name: /sair/i });
+      fireEvent.click(buttonSubmit);
+    });
+
+    expect(mockNavigate).toBeCalledTimes(1);
+    expect(mockNavigate).toBeCalledWith("/login");
   });
 });

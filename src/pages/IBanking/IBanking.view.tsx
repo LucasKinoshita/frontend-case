@@ -11,6 +11,7 @@ export function IBankingView(props: IBankingViewProps) {
     handleSelectEntry,
     filteredTransactions,
     groupedTransactions,
+    handleLogout,
   } = props;
 
   return (
@@ -18,6 +19,7 @@ export function IBankingView(props: IBankingViewProps) {
       <FilterButtons
         selectedEntry={selectedEntry}
         handleSelectEntry={handleSelectEntry}
+        handleLogout={handleLogout}
       />
 
       <Transactions

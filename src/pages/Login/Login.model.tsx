@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { NavigateFunction } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -35,6 +36,13 @@ export function useLoginModel(
   };
 
   const onSubmit = (data: LoginFormData) => handleAuthLogin(data);
+
+  useEffect(() => {
+    const token = localStorage.getItem("auth_token");
+    if (token) {
+      navigate("/ibanking");
+    }
+  }, [navigate]);
 
   return {
     register,
