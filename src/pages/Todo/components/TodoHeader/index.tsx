@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+import logoImage from "../../../../assets/logo.svg";
 import {
   Title,
   Subtitle,
@@ -10,12 +12,12 @@ import {
   Disclaimer,
 } from "./TodoHeader.styles";
 
-import logoImage from "../../../../assets/logo.svg";
-
 export function TodoHeader() {
   return (
     <Header>
-      <Logo src={logoImage} alt="Cora" title="Cora" />
+      <NavLink to="/" title="ir para página inicial">
+        <Logo src={logoImage} alt="Cora" title="Cora" />
+      </NavLink>
       <HGroup>
         <Title>Weekly to-do list &#128467;</Title>
         <Subtitle>

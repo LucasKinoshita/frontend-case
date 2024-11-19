@@ -1,72 +1,69 @@
 #page {
-  width: 100%;
-  max-width: calc(100% - 50px);
-  min-width: 320px;
-  min-height: 100vh;
-  display: flex;
   align-items: center;
+  display: flex;
+  font-size: 0.625rem;
   justify-content: center;
-  padding: 50px 0 25px;
-  font-size: 10px;
-  text-align: center;
   margin: 0 auto;
+  max-width: calc(100% - 50px);
+  min-height: 100vh;
+  min-width: 20rem;
+  padding: 3.125rem 0 1.563rem;
+  text-align: center;
+  width: 100%;
 }
 
 #page > div > img {
-  width: 36px;
-  margin-bottom: 25px;
+  margin-bottom: 1.563rem;
+  width: 2.25rem;
 }
 
 #page > div > h1 {
-  font-size: 5em;
+  font-size: 3.125rem;
   font-weight: 700;
-  line-height: 1.4em;
+  line-height: 4.375rem;
 }
 
 #page > div > h2 {
-  font-size: 2.6em;
-  line-height: 1em;
-  font-weight: 400;
   color: var(--color-main);
+  font-size: 1.625rem;
+  font-weight: 400;
+  line-height: 1.625rem;
 }
 
 #page > div > p {
-  width: 100%;
-  max-width: 550px;
-  display: block;
-  font-weight: 300;
-  text-align: center;
-  font-size: 1.8em;
-  line-height: 1.4em;
-  margin: 15px auto;
   color: var(--color-gray);
+  display: block;
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.575rem;
+  margin: 0.938rem auto;
+  max-width: 34.375rem;
+  text-align: center;
+  width: 100%;
 }
 
 #page > div > p.disclaimer {
-  padding: 15px;
-  border-radius: 5px;
-  max-width: 450px;
   background-color: rgba(0, 0, 0, 0.02);
   border: 1px solid var(--color-light-gray);
+  border-radius: 5px;
+  max-width: 28.125rem;
+  padding: 0.938rem;
 }
 
 #page .buttons {
   list-style: none;
-  margin-top: 20px;
-}
-
-#page .buttons li:first-child {
-  margin-bottom: 10px;
+  margin-top: 1.25rem;
 }
 
 #page .buttons a {
-  display: inline-block;
-  padding: 10px;
-  font-size: 1.4em;
-  text-decoration: none;
-  border-radius: 5px;
-  min-width: 200px;
-  text-align: center;
-  color: var(--color-main);
   border: 1px solid var(--color-main);
+  border-radius: 5px;
+  color: var(--color-main);
+  display: inline-block;
+  font-size: 0.875rem;
+  margin: 0.625rem;
+  min-width: 12.5rem;
+  padding: 0.625rem;
+  text-align: center;
+  text-decoration: none;
 }
